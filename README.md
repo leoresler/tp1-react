@@ -17,3 +17,10 @@ GESTOR DE PELICULAS Y SERIES
 Dos listas:
             -peliculas vistas
             -peliculas por ver
+
+Componentes:
+
+-Titulo
+-Tarjetas para visualizar info de pelis, debe contener: título, director, año, género (usar un select para este campo), rating y tipo (película o serie).
+-Botones
+-
