@@ -4,9 +4,12 @@ import './Titulo.module.css';
 
 export const Titulo = ({ texto }) => {
   return (
-    <h1>
-        Bienvenido a {texto}
+    <header>
+       <h1>
+        {texto}
     </h1>
+    </header>
+  
   );
 }; 
 

@@ -1,7 +1,18 @@
 import './Button.module.css';
+//import { useState } from 'react';
 
-export const Button = () => {
+
+
+export const Button = ({onBuscar, resultado}) => {
+
   return (
-   <button>Haz click , loquita!</button>
+
+    <>
+  
+    <button onClick={onBuscar}>Buscar</button>
+    <p>{resultado}</p>
+    </>
+
+
   )
 };
