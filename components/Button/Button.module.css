@@ -1,6 +1,5 @@
-button {
+.buttonBuscador{
     margin-top: 20px; /* separa del título */
-    margin-left: 60px;
     padding: 10px 20px;
     background-color: #00b894; /* verde esmeralda */
     color: white;
@@ -22,6 +21,6 @@ p{
      align-items: center;
  }
 
-button:hover {
+.buttonBuscador:hover {
     background-color: #019874; /* un poco mas oscuro al pasar el mouse */
 }

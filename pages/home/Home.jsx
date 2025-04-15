@@ -1,8 +1,9 @@
 import './Home.modules.css';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Titulo }  from '../../components/Titulo/Titulo.jsx/'; // cuando se exporta sin default, va entre llaves el componente
 import { Button } from '../../components/Button/Button.jsx';
 import { Buscador } from '../../components/Buscador/Buscador.jsx';
+import FormularioPelicula from '../../components/FormularioPelicula/FormularioPelicula.jsx';
 
 
 const peliculas = [
@@ -25,12 +26,27 @@ const peliculas = [
       año: 1999
     }
   ];
-
+  //console.log(peliculas)
 
   function Home() {
     const nombre = "Bienvenido al Videoclub";
     const [busqueda, setBusqueda] = useState('');
     const [resultado, setResultado] = useState('');
+
+    const [peliculas, setPeliculas] = useState(() => {
+      const guardadas = localStorage.getItem('peliculas');
+      return guardadas ? JSON.parse(guardadas) : [];
+    });
+
+    useEffect(() => {
+      //console.log('Películas actualizadas:', peliculas); 
+      localStorage.setItem('peliculas', JSON.stringify(peliculas));
+    }, [peliculas]);
+
+    const agregarPelicula = (nuevaPelicula) => {
+      setPeliculas([...peliculas, nuevaPelicula]);
+    };
+  
   
     const buscarPelicula = () => {
       const encontrada = peliculas.find(p => 
@@ -43,12 +59,19 @@ const peliculas = [
         setResultado("- No hay ninguna película");
       }
     };
+
+
   
     return (
       <>
         <Titulo texto={nombre} />
+
         <Buscador busqueda={busqueda} setBusqueda={setBusqueda} />
-        <Button onBuscar={buscarPelicula} resultado={resultado} />
+
+        <Button onBuscar={buscarPelicula} resultado={resultado} setBusqueda={setBusqueda}  />
+
+        <FormularioPelicula onAgregar={agregarPelicula} />
+        
       </>
     );
   };

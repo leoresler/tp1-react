@@ -1,5 +1,7 @@
 body {
     background-color: #222;
+    color: yellow;
+    font-size: 23px;
     margin: 0;
     padding: 0;
     display: flex;
