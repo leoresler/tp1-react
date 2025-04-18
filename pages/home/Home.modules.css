@@ -1,11 +1,7 @@
 body {
-    background-color: #222;
-    color: yellow;
-    font-size: 23px;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(135deg, #1d1c50 0%, #000000 100%);
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
 }
 

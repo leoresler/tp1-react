@@ -1,15 +1,16 @@
-//src/components/Titulo.jsx
-//import React from 'react';
 import './Titulo.module.css';
 
-export const Titulo = ({ texto }) => {
+
+const Titulo = ({ textoTitulo }) => {
   return (
     <header>
        <h1>
-        {texto}
-    </h1>
+        {textoTitulo}
+      </h1>
     </header>
   
   );
 }; 
+
+export default Titulo
 

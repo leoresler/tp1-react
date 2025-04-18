@@ -1,80 +1,84 @@
-import './Home.modules.css';
-import { useState,useEffect } from 'react';
-import { Titulo }  from '../../components/Titulo/Titulo.jsx/'; // cuando se exporta sin default, va entre llaves el componente
-import { Button } from '../../components/Button/Button.jsx';
-import { Buscador } from '../../components/Buscador/Buscador.jsx';
-import FormularioPelicula from '../../components/FormularioPelicula/FormularioPelicula.jsx';
+import "./Home.modules.css";
+import { useState, useEffect } from "react";
+import Titulo from "../../components/Titulo/Titulo.jsx/"; // cuando se exporta sin default, va entre llaves el componente
+import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas.jsx";
+import peliculasData from "../../src/assets/peliculas";
 
 
-const peliculas = [
-    {
-      id: 1,
-      titulo: "El Señor de los Anillos",
-      genero: "Fantasía",
-      año: 2001
-    },
-    {
-      id: 2,
-      titulo: "Volver al Futuro",
-      genero: "Ciencia Ficción",
-      año: 1985
-    },
-    {
-      id: 3,
-      titulo: "Matrix",
-      genero: "Acción",
-      año: 1999
-    }
-  ];
-  //console.log(peliculas)
+function Home() {
+  // const nombre = "Bienvenido al Videoclub";
+  // const [busqueda, setBusqueda] = useState("");
+  // const [resultado, setResultado] = useState("");
 
-  function Home() {
-    const nombre = "Bienvenido al Videoclub";
-    const [busqueda, setBusqueda] = useState('');
-    const [resultado, setResultado] = useState('');
+  // const [peliculas, setPeliculas] = useState(() => {
+  //   const guardadas = localStorage.getItem("peliculas");
+  //   return guardadas ? JSON.parse(guardadas) : [];
+  // });
 
-    const [peliculas, setPeliculas] = useState(() => {
-      const guardadas = localStorage.getItem('peliculas');
-      return guardadas ? JSON.parse(guardadas) : [];
-    });
+  // useEffect(() => {
+  //   //console.log('Películas actualizadas:', peliculas);
+  //   localStorage.setItem("peliculas", JSON.stringify(peliculas));
+  // }, [peliculas]);
 
-    useEffect(() => {
-      //console.log('Películas actualizadas:', peliculas); 
-      localStorage.setItem('peliculas', JSON.stringify(peliculas));
-    }, [peliculas]);
+  // const agregarPelicula = (nuevaPelicula) => {
+  //   setPeliculas([...peliculas, nuevaPelicula]);
+  // };
 
-    const agregarPelicula = (nuevaPelicula) => {
-      setPeliculas([...peliculas, nuevaPelicula]);
-    };
-  
-  
-    const buscarPelicula = () => {
-      const encontrada = peliculas.find(p => 
-        p.titulo.toLowerCase() === busqueda.toLowerCase()
-      );
-  
-      if (encontrada) {
-        setResultado(`🎬 ${encontrada.titulo} - ${encontrada.genero} (${encontrada.año})`);
-      } else {
-        setResultado("- No hay ninguna película");
-      }
-    };
+  // const buscarPelicula = () => {
+  //   const encontrada = peliculas.find(
+  //     (p) => p.titulo.toLowerCase() === busqueda.toLowerCase()
+  //   );
 
+  //   if (encontrada) {
+  //     setResultado(
+  //       `🎬 ${encontrada.titulo} - ${encontrada.genero} (${encontrada.año})`
+  //     );
+  //   } else {
+  //     setResultado("- No hay ninguna película");
+  //   }
+  // };
 
-  
-    return (
-      <>
-        <Titulo texto={nombre} />
+  const [peliculas, setPeliculas] = useState([]);
+  const [porVer, setPorVer] = useState([]);
+  const [vistas, setVistas] = useState([]);
 
-        <Buscador busqueda={busqueda} setBusqueda={setBusqueda} />
-
-        <Button onBuscar={buscarPelicula} resultado={resultado} setBusqueda={setBusqueda}  />
-
-        <FormularioPelicula onAgregar={agregarPelicula} />
-        
-      </>
-    );
+  const moverAPorVer = (pelicula) => {
+    setPeliculas(peliculas.filter((p) => p.id !== pelicula.id));
+    setPorVer([...porVer, pelicula]);
   };
-  
 
-export default Home
+  const moverAVistas = (pelicula) => {
+    // si viene de "por ver"
+    if (porVer.some((p) => p.id === pelicula.id)) {
+      setPorVer(porVer.filter((p) => p.id !== pelicula.id));
+    } else {
+      // si viene de la lista principal
+      setPeliculas(peliculas.filter((p) => p.id !== pelicula.id));
+    }
+    setVistas([...vistas, pelicula]);
+  };
+
+  useEffect(() => {
+    setPeliculas(peliculasData);
+  }, []);
+
+  return (
+    <>
+      {/* <FormularioPelicula onAgregar={agregarPelicula} />*/}
+
+      <Titulo textoTitulo="Videoclub" />
+
+      <ListaPeliculas
+        titulo="Películas y Series"
+        peliculas={peliculas}
+        agregarPorVer={moverAPorVer}
+        agregarVista={moverAVistas}
+      />
+
+      <ListaPeliculas titulo="Vistas" peliculas={vistas} />
+      <ListaPeliculas titulo="Por ver" peliculas={porVer} />
+    </>
+  );
+}
+
+export default Home;

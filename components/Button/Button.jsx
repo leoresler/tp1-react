@@ -1,23 +1,15 @@
-import  styles from './Button.module.css';
-//import { useState } from 'react';
+import './Button.module.css';
 
-
-
-export const Button = ({onBuscar, resultado,setBusqueda}) => {
-
+export const Button = ({ vista, porVer, arreglo, nombre }) => {
   const handleClick = () => {
-    onBuscar();          // Ejecuta la búsqueda
-    setBusqueda('');     // Limpia el campo del input
+    if (vista) {
+      vista(arreglo);
+    } else if (porVer) {
+      porVer(arreglo);
+    }
   };
 
   return (
-
-    <>
-  
-    <button className={styles.buttonBuscador} onClick={handleClick}>Buscar</button>
-    <p>{resultado}</p>
-    </>
-
-
-  )
+    <button onClick={handleClick}>{nombre}</button>
+  );
 };
