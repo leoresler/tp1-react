@@ -1,7 +1,7 @@
 import { Button } from "../Button/Button";
 import styles from "./Item.module.css";
 
-const Item = ({ pelicula, agregarPorVer, agregarVista }) => {
+const Item = ({ pelicula, agregarVista }) => {
   return (
     <div className={styles.item}>
       <h3>{pelicula.titulo}</h3>
@@ -18,11 +18,6 @@ const Item = ({ pelicula, agregarPorVer, agregarVista }) => {
               vista={agregarVista}
               arreglo={pelicula}
               nombre="Agregar a vista"
-            />
-            <Button
-              porVer={agregarPorVer}
-              arreglo={pelicula}
-              nombre="Agregar a por ver"
             />
           </div>
         )}

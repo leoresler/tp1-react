@@ -1,14 +1,13 @@
 import styles from "./ItemList.module.css";
 import Item from "../Item/Item.jsx";
 
-const ItemList = ({ peliculas, agregarPorVer, agregarVista }) => {
+const ItemList = ({ peliculas, agregarVista }) => {
   return (
     <div className={styles.container}>
       {peliculas.map((pelicula) => (
         <Item
           key={pelicula.id}
           pelicula={pelicula}
-          agregarPorVer={agregarPorVer}
           agregarVista={agregarVista}
         />
       ))}
