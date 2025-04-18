@@ -69,14 +69,14 @@ function Home() {
       <Titulo textoTitulo="Videoclub" />
 
       <ListaPeliculas
-        titulo="Películas y Series"
-        peliculas={peliculas}
+        titulo="Películas y Series por ver"
+        peliculas={porVer}
         agregarPorVer={moverAPorVer}
         agregarVista={moverAVistas}
       />
 
       <ListaPeliculas titulo="Vistas" peliculas={vistas} />
-      <ListaPeliculas titulo="Por ver" peliculas={porVer} />
+      {/*<ListaPeliculas titulo="Por ver" peliculas={porVer} />*/}
     </>
   );
 }
