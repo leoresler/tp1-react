@@ -1,7 +1,7 @@
 import Item from "../Item/Item.jsx";
 import styles from "./ItemList.module.css";
 
-const ItemList = ({ peliculas, agregarVista, agregarPorVer, editarItem  }) => {
+const ItemList = ({ peliculas, agregarVista, agregarPorVer, editarItem, eliminarItem  }) => {
   return (
     <div className={styles.container}>
       {peliculas.map((pelicula) => (
@@ -11,6 +11,7 @@ const ItemList = ({ peliculas, agregarVista, agregarPorVer, editarItem  }) => {
           agregarVista={agregarVista}
           agregarPorVer={agregarPorVer}
           editarItem={editarItem}
+          eliminarItem={eliminarItem}
         />
       ))}
     </div>

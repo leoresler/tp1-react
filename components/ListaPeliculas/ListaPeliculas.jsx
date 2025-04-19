@@ -4,9 +4,7 @@ import styles from "./ListaPeliculas.module.css";
 
 ("./traerPeliculas.js");
 
-
-
-const ListaPeliculas = ({ titulo, peliculas, agregarVista, agregarPorVer, editarItem }) => {
+const ListaPeliculas = ({ titulo, peliculas, agregarVista, agregarPorVer, editarItem, eliminarItem }) => {
   return (
     <>
       <SubTitulos textoSubTitulo={titulo} /> ({peliculas.length})
@@ -16,6 +14,7 @@ const ListaPeliculas = ({ titulo, peliculas, agregarVista, agregarPorVer, editar
           agregarVista={agregarVista}
           agregarPorVer={agregarPorVer}
           editarItem={editarItem}
+          eliminarItem={eliminarItem}
         />
       ) : (
         <h3>No hay elementos en esta lista</h3>
