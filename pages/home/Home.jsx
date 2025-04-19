@@ -1,9 +1,11 @@
 import "./Home.modules.css";
-import { useState, useEffect } from "react";
-import peliculasData from "../../src/assets/peliculas";
-import Titulo from "../../components/Titulo/Titulo";
+
+import { useEffect, useState } from "react";
+
 import FormAgregarPeliculas from "../../components/FormAgregarPeliculas/FormAgregarPeliculas";
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
+import Titulo from "../../components/Titulo/Titulo";
+import peliculasData from "../../src/assets/peliculas";
 
 function Home() {
   const [porVer, setPorVer] = useState([]);
@@ -16,6 +18,11 @@ function Home() {
   const moverAVistas = (pelicula) => {
     setPorVer(porVer.filter((p) => p.id !== pelicula.id));
     setVistas([...vistas, pelicula]);
+  };
+
+  const moverAPorVer = (pelicula) => {
+    setVistas(vistas.filter((p) => p.id !== pelicula.id));
+    setPorVer([...porVer, pelicula]);
   };
 
   useEffect(() => {
@@ -36,7 +43,12 @@ function Home() {
         agregarVista={moverAVistas}
       />
 
-      <ListaPeliculas titulo="Vistas" peliculas={vistas} />
+      {/* <ListaPeliculas titulo="Vistas" peliculas={vistas} /> */}
+      <ListaPeliculas
+        titulo="Vistas"
+        peliculas={vistas}
+        agregarPorVer={moverAPorVer}
+      />
     </>
   );
 }

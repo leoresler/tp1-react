@@ -1,8 +1,11 @@
-import styles from "./ListaPeliculas.module.css";("./traerPeliculas.js");
 import ItemList from "../ItemList/ItemList";
 import SubTitulos from "../Titulo/SubTitulos";
+import styles from "./ListaPeliculas.module.css";
+("./traerPeliculas.js");
 
-const ListaPeliculas = ({ titulo, peliculas, agregarVista }) => {
+
+
+const ListaPeliculas = ({ titulo, peliculas, agregarVista, agregarPorVer }) => {
   return (
     <>
       <SubTitulos textoSubTitulo={titulo} /> ({peliculas.length})
@@ -10,6 +13,7 @@ const ListaPeliculas = ({ titulo, peliculas, agregarVista }) => {
         <ItemList
           peliculas={peliculas}
           agregarVista={agregarVista}
+          agregarPorVer={agregarPorVer}
         />
       ) : (
         <h3>No hay elementos en esta lista</h3>
