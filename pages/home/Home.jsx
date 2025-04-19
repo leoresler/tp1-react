@@ -29,18 +29,26 @@ function Home() {
     setPorVer(peliculasData);
   }, []);
 
+  const editarItem = (id, nuevoTitulo, nuevoDirector, nuevoAño, nuevoGenero, nuevoRating, nuevoTipo) => {
+    const nuevosVideos = porVer.map((video) =>
+      video.id === id ? { ...video, id: id, titulo: nuevoTitulo, director: nuevoDirector, año: parseInt(nuevoAño), genero: nuevoGenero, tipo: nuevoTipo, rating: nuevoRating } : video
+    );
+    setPorVer(nuevosVideos);
+  };
+
   return (
     <>
       <Titulo textoTitulo="Videoclub" />
 
       <FormAgregarPeliculas onAgregar={agregarPelicula} />
 
-      <Titulo textoTitulo="Películas y Series" />
+      {/* <Titulo textoTitulo="Películas y Series" /> */}
 
       <ListaPeliculas
         titulo="Por ver"
         peliculas={porVer}
         agregarVista={moverAVistas}
+        editarItem={editarItem}
       />
 
       {/* <ListaPeliculas titulo="Vistas" peliculas={vistas} /> */}
