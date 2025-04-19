@@ -6,13 +6,25 @@ import Buscador from "../../components/Buscador/Buscador";
 import FormAgregarPeliculas from "../../components/FormAgregarPeliculas/FormAgregarPeliculas";
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 import Titulo from "../../components/Titulo/Titulo";
-import peliculasData from "../../src/assets/peliculas";
+
+// import peliculasData from "../../src/assets/peliculas";
 
 function Home() {
 
+  // Cargar datos desde localStorage al montar o un array vacio
+  const porVerGuardadas = JSON.parse(localStorage.getItem("porVer")) || [];
+  const vistasGuardadas = JSON.parse(localStorage.getItem("vistas")) || [];
+
   //const [peliculas, setPeliculas] = useState(peliculasData);
-  const [porVer, setPorVer] = useState([]);
-  const [vistas, setVistas] = useState([]);
+  const [porVer, setPorVer] = useState(porVerGuardadas);
+  const [vistas, setVistas] = useState(vistasGuardadas);
+
+  // Guardar en localStorage cada vez que cambian porVer o vistas
+  useEffect(() => {
+    localStorage.setItem("porVer", JSON.stringify(porVer));
+    localStorage.setItem("vistas", JSON.stringify(vistas));
+  }, [porVer, vistas]);
+
 
   // funcion que agrega una pelicula o serie
   const agregarPelicula = (pelicula) => {
@@ -44,39 +56,6 @@ function Home() {
     setVistas(vistas.filter((p) => p.id !== pelicula.id));
     setPorVer([...porVer, pelicula]);
   };
-
-  // useEffect(() => {
-  //   setPorVer(peliculasData);
-  // }, []);
-
-
-  useEffect(() => {
-    const porVerGuardadas = JSON.parse(localStorage.getItem("porVer"));
-    const vistasGuardadas = JSON.parse(localStorage.getItem("vistas"));
-
-    if (porVerGuardadas) {
-      setPorVer(porVerGuardadas);
-    } else {
-      setPorVer(peliculasData);
-    }
-
-    if (vistasGuardadas) {
-      setVistas(vistasGuardadas);
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      localStorage.setItem("porVer", JSON.stringify(porVer));
-      localStorage.setItem("vistas", JSON.stringify(vistas));
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
-  }, [porVer, vistas]);
 
   return (
     <>
