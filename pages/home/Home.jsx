@@ -45,9 +45,38 @@ function Home() {
     setPorVer([...porVer, pelicula]);
   };
 
+  // useEffect(() => {
+  //   setPorVer(peliculasData);
+  // }, []);
+
+
   useEffect(() => {
-    setPorVer(peliculasData);
+    const porVerGuardadas = JSON.parse(localStorage.getItem("porVer"));
+    const vistasGuardadas = JSON.parse(localStorage.getItem("vistas"));
+
+    if (porVerGuardadas) {
+      setPorVer(porVerGuardadas);
+    } else {
+      setPorVer(peliculasData);
+    }
+
+    if (vistasGuardadas) {
+      setVistas(vistasGuardadas);
+    }
   }, []);
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.setItem("porVer", JSON.stringify(porVer));
+      localStorage.setItem("vistas", JSON.stringify(vistas));
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [porVer, vistas]);
 
   return (
     <>
@@ -57,12 +86,12 @@ function Home() {
 
       {/* <Titulo textoTitulo="Películas y Series" /> */}
 
-      <Buscador 
-        peliculas={porVer} 
-        agregarVista={moverAVistas} 
-        editarItem={editarItem} 
+      <Buscador
+        peliculas={porVer}
+        agregarVista={moverAVistas}
+        editarItem={editarItem}
         eliminarItem={eliminarItem}
-        />
+      />
 
       <ListaPeliculas
         titulo="Por ver"
