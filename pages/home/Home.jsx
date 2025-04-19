@@ -15,6 +15,19 @@ function Home() {
     setPorVer([...porVer, pelicula]);
   };
 
+  // funcion que elimina un item de la lista general
+  const eliminarItem = (id) => {
+    const nuevoListaVideos = porVer.filter(video => video.id !== id); // general
+    setPorVer(nuevoListaVideos);
+  };
+
+  const editarItem = (id, nuevoTitulo, nuevoDirector, nuevoAño, nuevoGenero, nuevoRating, nuevoTipo) => {
+    const nuevosVideos = porVer.map((video) =>
+      video.id === id ? { ...video, id: id, titulo: nuevoTitulo, director: nuevoDirector, año: parseInt(nuevoAño), genero: nuevoGenero, tipo: nuevoTipo, rating: nuevoRating } : video
+    );
+    setPorVer(nuevosVideos);
+  };
+
   const moverAVistas = (pelicula) => {
     setPorVer(porVer.filter((p) => p.id !== pelicula.id));
     setVistas([...vistas, pelicula]);
@@ -29,13 +42,6 @@ function Home() {
     setPorVer(peliculasData);
   }, []);
 
-  const editarItem = (id, nuevoTitulo, nuevoDirector, nuevoAño, nuevoGenero, nuevoRating, nuevoTipo) => {
-    const nuevosVideos = porVer.map((video) =>
-      video.id === id ? { ...video, id: id, titulo: nuevoTitulo, director: nuevoDirector, año: parseInt(nuevoAño), genero: nuevoGenero, tipo: nuevoTipo, rating: nuevoRating } : video
-    );
-    setPorVer(nuevosVideos);
-  };
-
   return (
     <>
       <Titulo textoTitulo="Videoclub" />
@@ -49,6 +55,7 @@ function Home() {
         peliculas={porVer}
         agregarVista={moverAVistas}
         editarItem={editarItem}
+        eliminarItem={eliminarItem}
       />
 
       {/* <ListaPeliculas titulo="Vistas" peliculas={vistas} /> */}
