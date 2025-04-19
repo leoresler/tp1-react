@@ -1,36 +1,33 @@
 import { useState, useEffect } from "react";
 import styles from "./Buscador.module.css";
+import ListaPeliculas from "../ListaPeliculas/ListaPeliculas.jsx";
 import ItemListContainer from "../../../../mi-app-react/src/componentes/ItemListContainer/ItemListContainer.jsx";
-import data from "../../../../mi-app-react/src/data/datos.json";//datos de mi json(arreglo de peliculas)
+//import data from "../../../../mi-app-react/src/data/datos.json";//datos de mi json(arreglo de peliculas)
+//import peliculasData from "../../src/assets/peliculas";
 
-const Buscador = () => {
+const Buscador = ({peliculas, agregarVista,
+  editarItem}) => {
   const [busqueda, setBusqueda] = useState("");
-  const [peliculas, setPeliculas] = useState([]);
+  //const [peliculas, setPeliculas] = useState(peliculasData);
 
   const buscarPelicula = (e) => {
     setBusqueda(e.target.value);
   };
 
-  const pedirPeliculas = () => {
-    return new Promise((resolve) => {
-      resolve(data);
-    });
-  };
 
-  useEffect(() => {
-    pedirPeliculas().then((resp) => {
-      setPeliculas(resp);
-    });
-  }, []);
-
-  const peliculasAMostrar = busqueda.trim()
+  const peliculasFiltradas = busqueda.trim()
     ? peliculas.filter((dato) =>
         dato.titulo.toLowerCase().includes(busqueda.toLowerCase()) ||
         dato.director.toLowerCase().includes(busqueda.toLowerCase())
       )
     : peliculas;
 
+    console.log(peliculasFiltradas);
+
+    
+
   return (
+    <>
     <div className={styles.divBuscador}>
       <label className={styles.labelBuscador} htmlFor="busqueda">
         Buscador de Películas
@@ -43,8 +40,23 @@ const Buscador = () => {
         value={busqueda}
         onChange={buscarPelicula}
       />
-      <ItemListContainer peliculas={peliculasAMostrar} />
-    </div>
+      </div>
+      <div className={styles.divBusqueda}>
+
+       {busqueda && (
+        <ListaPeliculas
+          titulo="Resultados de búsqueda"
+          peliculas={peliculasFiltradas}
+          agregarVista ={agregarVista}
+          editarItem = {editarItem}
+         
+        />
+        
+      )}
+      </div>
+      
+      
+    </>
   );
 };
 

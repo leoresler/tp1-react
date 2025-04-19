@@ -6,8 +6,14 @@ import FormAgregarPeliculas from "../../components/FormAgregarPeliculas/FormAgre
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 import Titulo from "../../components/Titulo/Titulo";
 import peliculasData from "../../src/assets/peliculas";
+import Buscador from "../../components/Buscador/Buscador";
 
 function Home() {
+
+  const [peliculas, setPeliculas] = useState(peliculasData);
+
+
+
   const [porVer, setPorVer] = useState([]);
   const [vistas, setVistas] = useState([]);
 
@@ -43,6 +49,11 @@ function Home() {
       <FormAgregarPeliculas onAgregar={agregarPelicula} />
 
       {/* <Titulo textoTitulo="Películas y Series" /> */}
+
+      <Buscador peliculas={peliculas} agregarVista={moverAVistas}
+        editarItem={editarItem} />
+
+
 
       <ListaPeliculas
         titulo="Por ver"
