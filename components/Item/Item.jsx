@@ -1,4 +1,5 @@
-import { Button } from "../Button/Button";
+import { BotonEditar, BotonEliminar, Button } from "../Button/Button";
+
 import styles from "./Item.module.css";
 import { useState } from 'react';
 
@@ -97,9 +98,15 @@ const Item = ({ pelicula, agregarVista, agregarPorVer, editarItem, eliminarItem 
                   arreglo={pelicula}
                   nombre="Agregar a Vistas"
                 />
-                <button onClick={activarBoton}>Editar</button>
-                <br /><br />
-                <button onClick={() => confirmarEliminacion(pelicula.id)}>Eliminar</button>
+                <BotonEditar 
+                  nombre="Editar" 
+                  funcion={activarBoton} 
+                />              
+                <BotonEliminar 
+                  nombre="Eliminar" 
+                  elemento={pelicula} 
+                  funcion={confirmarEliminacion} 
+                />
               </>
             )}
 
