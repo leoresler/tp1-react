@@ -6,6 +6,7 @@ import Buscador from "../../components/Buscador/Buscador";
 import FormAgregarPeliculas from "../../components/FormAgregarPeliculas/FormAgregarPeliculas";
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 import Titulo from "../../components/Titulo/Titulo";
+import MostrarFormulario from "../../components/MostrarFormulario/MostrarFormulario";
 
 // import peliculasData from "../../src/assets/peliculas";
 
@@ -61,9 +62,7 @@ function Home() {
     <>
       <Titulo textoTitulo="Videoclub" />
 
-      <FormAgregarPeliculas onAgregar={agregarPelicula} />
 
-      {/* <Titulo textoTitulo="Películas y Series" /> */}
 
       <Buscador
         peliculas={porVer}
@@ -72,6 +71,12 @@ function Home() {
         eliminarItem={eliminarItem}
       />
 
+
+      <MostrarFormulario onAgregar={agregarPelicula} />
+
+      {/* <Titulo textoTitulo="Películas y Series" /> */}
+
+     
       <ListaPeliculas
         titulo="Por ver"
         peliculas={porVer}
