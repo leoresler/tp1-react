@@ -7,6 +7,7 @@ import FormAgregarPeliculas from "../../components/FormAgregarPeliculas/FormAgre
 import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 import Titulo from "../../components/Titulo/Titulo";
 import MostrarFormulario from "../../components/MostrarFormulario/MostrarFormulario";
+import Flitros from "../../components/Filtros/Flitros";
 
 // import peliculasData from "../../src/assets/peliculas";
 
@@ -65,7 +66,7 @@ function Home() {
 
 
       <Buscador
-        peliculas={porVer}
+        peliculas={[...porVer, ...vistas]}
         agregarVista={moverAVistas}
         editarItem={editarItem}
         eliminarItem={eliminarItem}
@@ -76,21 +77,14 @@ function Home() {
 
       {/* <Titulo textoTitulo="Películas y Series" /> */}
 
-     
-      <ListaPeliculas
-        titulo="Por ver"
-        peliculas={porVer}
-        agregarVista={moverAVistas}
-        editarItem={editarItem}
-        eliminarItem={eliminarItem}
-      />
+      <Flitros  porVer={porVer} vistas={vistas} peliculas={[...porVer, ...vistas]}
+       agregarVista={moverAVistas}
+       editarItem={editarItem}
+       eliminarItem={eliminarItem}
+       agregarPorVer={moverAPorVer}/>
 
-      {/* <ListaPeliculas titulo="Vistas" peliculas={vistas} /> */}
-      <ListaPeliculas
-        titulo="Vistas"
-        peliculas={vistas}
-        agregarPorVer={moverAPorVer}
-      />
+     
+   
     </>
   );
 }
