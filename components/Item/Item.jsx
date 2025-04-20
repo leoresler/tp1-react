@@ -98,36 +98,43 @@ const Item = ({ pelicula, agregarVista, agregarPorVer, editarItem, eliminarItem 
                   arreglo={pelicula}
                   nombre="Agregar a Vistas"
                 />
-                <BotonEditar 
-                  nombre="Editar" 
-                  funcion={activarBoton} 
-                />              
-                <BotonEliminar 
-                  nombre="Eliminar" 
-                  elemento={pelicula} 
-                  funcion={confirmarEliminacion} 
-                />
+                {editarItem && ( // verifica si tiene la propiedad editarItem (si lo tiene, lo muestra)
+                  <BotonEditar
+                    nombre="Editar"
+                    funcion={activarBoton}
+                  />
+                )}
+                {eliminarItem && ( // verifica si tiene la propiedad eliminarItem (si lo tiene, lo muestra)
+                  <BotonEliminar
+                    nombre="Eliminar"
+                    elemento={pelicula}
+                    funcion={confirmarEliminacion}
+                  />
+                )}
               </>
             )}
 
             {agregarPorVer && (
               <>
-              <Button
-                porVer={agregarPorVer}
-                arreglo={pelicula}
-                nombre="Agregar a Por Ver"
-              />
-              <BotonEditar 
-                  nombre="Editar" 
-                  funcion={activarBoton} 
-                />              
-                <BotonEliminar 
-                  nombre="Eliminar" 
-                  elemento={pelicula} 
-                  funcion={confirmarEliminacion} 
+                <Button
+                  porVer={agregarPorVer}
+                  arreglo={pelicula}
+                  nombre="Agregar a Por Ver"
                 />
-                </>
-              
+                {editarItem && ( // verifica si tiene la propiedad editarItem (si lo tiene, lo muestra)
+                  <BotonEditar
+                    nombre="Editar"
+                    funcion={activarBoton}
+                  />
+                )}
+                {eliminarItem && ( // verifica si tiene la propiedad eliminarItem (si lo tiene, lo muestra)
+                  <BotonEliminar
+                    nombre="Eliminar"
+                    elemento={pelicula}
+                    funcion={confirmarEliminacion}
+                  />
+                )}
+              </>
             )}
           </div>
         </div>)

@@ -1,21 +1,14 @@
-import { useEffect, useState } from "react";
-
 import ListaPeliculas from "../ListaPeliculas/ListaPeliculas.jsx";
 import styles from "./Buscador.module.css";
-
-//import ItemListContainer from "../../../../mi-app-react/src/componentes/ItemListContainer/ItemListContainer.jsx";
-//import data from "../../../../mi-app-react/src/data/datos.json";//datos de mi json(arreglo de peliculas)
-//import peliculasData from "../../src/assets/peliculas";
+import { useState } from "react";
 
 const Buscador = ({ peliculas, agregarVista,
   editarItem, eliminarItem }) => {
   const [busqueda, setBusqueda] = useState("");
-  //const [peliculas, setPeliculas] = useState(peliculasData);
 
   const buscarPelicula = (e) => {
     setBusqueda(e.target.value);
   };
-
 
   const peliculasFiltradas = busqueda.trim()
     ? peliculas.filter((dato) =>
@@ -51,11 +44,8 @@ const Buscador = ({ peliculas, agregarVista,
             editarItem={editarItem}
             eliminarItem={eliminarItem}
           />
-
         )}
       </div>
-
-
     </>
   );
 };

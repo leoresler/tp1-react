@@ -3,12 +3,12 @@ import "./Home.modules.css";
 import { useEffect, useState } from "react";
 
 import Buscador from "../../components/Buscador/Buscador";
-import FormAgregarPeliculas from "../../components/FormAgregarPeliculas/FormAgregarPeliculas";
-import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
-import Titulo from "../../components/Titulo/Titulo";
+import Filtros from "../../components/Filtros/Filtros";
 import MostrarFormulario from "../../components/MostrarFormulario/MostrarFormulario";
-import Flitros from "../../components/Filtros/Flitros";
+import Titulo from "../../components/Titulo/Titulo";
 
+//import FormAgregarPeliculas from "../../components/FormAgregarPeliculas/FormAgregarPeliculas";
+//import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 // import peliculasData from "../../src/assets/peliculas";
 
 function Home() {
@@ -63,8 +63,6 @@ function Home() {
     <>
       <Titulo textoTitulo="Videoclub" />
 
-
-
       <Buscador
         peliculas={[...porVer, ...vistas]}
         agregarVista={moverAVistas}
@@ -72,19 +70,16 @@ function Home() {
         eliminarItem={eliminarItem}
       />
 
-
       <MostrarFormulario onAgregar={agregarPelicula} />
 
-      {/* <Titulo textoTitulo="Películas y Series" /> */}
-
-      <Flitros  porVer={porVer} vistas={vistas} peliculas={[...porVer, ...vistas]}
-       agregarVista={moverAVistas}
-       editarItem={editarItem}
-       eliminarItem={eliminarItem}
-       agregarPorVer={moverAPorVer}/>
-
-     
-   
+      <Filtros 
+        porVer={porVer} 
+        vistas={vistas} 
+        peliculas={[...porVer, ...vistas]}
+        agregarVista={moverAVistas}
+        editarItem={editarItem}
+        eliminarItem={eliminarItem}
+        agregarPorVer={moverAPorVer} />
     </>
   );
 }
