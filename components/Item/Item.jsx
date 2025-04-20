@@ -111,11 +111,23 @@ const Item = ({ pelicula, agregarVista, agregarPorVer, editarItem, eliminarItem 
             )}
 
             {agregarPorVer && (
+              <>
               <Button
                 porVer={agregarPorVer}
                 arreglo={pelicula}
                 nombre="Agregar a Por Ver"
               />
+              <BotonEditar 
+                  nombre="Editar" 
+                  funcion={activarBoton} 
+                />              
+                <BotonEliminar 
+                  nombre="Eliminar" 
+                  elemento={pelicula} 
+                  funcion={confirmarEliminacion} 
+                />
+                </>
+              
             )}
           </div>
         </div>)

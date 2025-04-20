@@ -1,0 +1,24 @@
+.divFiltros {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .divFiltros select {
+    padding: 5px 8px;
+    font-size: 14px;
+    margin: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 180px; /* Tamaño pequeño */
+    background-color: #f9f9f9;
+    transition: border 0.3s;
+  }
+  
+  .divFiltros select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
