@@ -17,6 +17,16 @@ const Item = ({ porVer, vistas, pelicula, agregarPorVer, agregarVista, editarIte
   const [generoEditado, setGeneroEditado] = useState(pelicula.genero);
   const [ratingEditado, setRatingEditado] = useState(pelicula.rating);
   const [tipoEditado, setTipoEditado] = useState(pelicula.tipo);
+  const generos = [
+    "Accion",
+    "Drama",
+    "Ciencia Ficcion",
+    "Aventura",
+    "Terror",
+    "Comedia",
+    "Documentales",
+    "Romantica"
+  ];
 
   // funcion  que hacer setear los valores del formulario, al presionar "guardar"
   const handleGuardar = () => {
@@ -58,33 +68,34 @@ const Item = ({ porVer, vistas, pelicula, agregarPorVer, agregarVista, editarIte
 
       {modoEdicion ?
         (
-        <div>
-          <input value={tituloEditado} onChange={(e) => setTituloEditado(e.target.value)} />
-          <input value={directorEditado} onChange={(e) => setDirectorEditado(e.target.value)} />
-          <input value={añoEditado} onChange={(e) => setAñoEditado(e.target.value)} />
-          <br />
-          <select value={generoEditado} onChange={(e) => setGeneroEditado(e.target.value)}>
-            <option value="Accion">Accion</option>
-            <option value="Drama">Drama</option>
-            <option value="Ciencia Ficcion">Ciencia Ficcion</option>
-            <option value="Aventura">Aventura</option>
-            <option value="Terror">Terror</option>
-            <option value="Comedia">Comedia</option>
-            <option value="Documentales">Documentales</option>
-            <option value="Romantica">Romantica</option>
-          </select>
-          <br />
-          <input value={ratingEditado} onChange={(e) => setRatingEditado(e.target.value)} />
+          <div>
+            <input value={tituloEditado} onChange={(e) => setTituloEditado(e.target.value)} />
+            <input value={directorEditado} onChange={(e) => setDirectorEditado(e.target.value)} />
+            <input value={añoEditado} onChange={(e) => setAñoEditado(e.target.value)} />
+            <br />
+            <select value={generoEditado} onChange={(e) => setGeneroEditado(e.target.value)}>
+              <option value={generoEditado}>{generoEditado}</option>
+              {generos
+                .filter((genero) => genero !== generoEditado)
+                .map((genero) => (
+                  <option key={genero} value={genero}>
+                    {genero}
+                  </option>
+                ))}
+            </select>
+            <br />
+            <input value={ratingEditado} onChange={(e) => setRatingEditado(e.target.value)} />
 
-          {/* <input value={tipoEditado} onChange={(e) => setTipoEditado(e.target.value)} /> */}
-          <select value={tipoEditado} onChange={(e) => setTipoEditado(e.target.value)}>
-            <option value="Pelicula">Pelicula</option>
-            <option value="Serie">Serie</option>
-          </select>
-          <br /><br />
-          <button onClick={handleGuardar}>Guardar</button>
-          <button onClick={() => setModoEdicion(false)}>Cancelar</button>
-        </div>
+            <select value={tipoEditado} onChange={(e) => setTipoEditado(e.target.value)}>
+              <option value="Pelicula">Pelicula</option>
+              <option value="Serie">Serie</option>
+            </select>
+
+            <br /><br />
+            
+            <button onClick={handleGuardar}>Guardar</button>
+            <button onClick={() => setModoEdicion(false)}>Cancelar</button>
+          </div>
         )
         :
         (<div>

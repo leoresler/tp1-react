@@ -1,7 +1,7 @@
-import { useState } from "react";
 import styles from "./FormAgregarPeliculas.module.css";
+import { useState } from "react";
 
-const FormAgregarPeliculas = ({onAgregar}) => {
+const FormAgregarPeliculas = ({ onAgregar }) => {
   const [nuevaPelicula, setNuevaPelicula] = useState({
     titulo: "",
     director: "",
@@ -10,6 +10,15 @@ const FormAgregarPeliculas = ({onAgregar}) => {
     tipo: "",
     rating: "",
   });
+
+  const generos = [
+    "Acción",
+    "Comedia",
+    "Drama",
+    "Ciencia Ficción",
+    "Terror",
+    "Fantasía"
+  ];
 
   const handleChange = (e) => {
     setNuevaPelicula({
@@ -60,12 +69,11 @@ const FormAgregarPeliculas = ({onAgregar}) => {
         onChange={handleChange}
       >
         <option value="">Selecciona un género</option>
-        <option value="Acción">Acción</option>
-        <option value="Comedia">Comedia</option>
-        <option value="Drama">Drama</option>
-        <option value="Ciencia Ficción">Ciencia Ficción</option>
-        <option value="Terror">Terror</option>
-        <option value="Fantasía">Fantasía</option>
+        {generos.map((genero) => (
+          <option key={genero} value={genero}>
+            {genero}
+          </option>
+        ))}
       </select>
 
       <select
