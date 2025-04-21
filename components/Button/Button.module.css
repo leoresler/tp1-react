@@ -2,7 +2,7 @@ button {
     margin-top: 20px; /* separa del título */
     margin-left: 60px;
     padding: 10px 20px;
-    background-color: #00b894; /* verde esmeralda */
+    background-color: #646566b7;
     color: white;
     border: none;
     border-radius: 8px;
@@ -14,6 +14,3 @@ button {
 
 }
 
-button:hover {
-    background-color: #019874; /* un poco mas oscuro al pasar el mouse */
-}

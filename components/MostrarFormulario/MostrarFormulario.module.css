@@ -30,9 +30,6 @@ p {
   min-width: 120px;
 }
 
-.buttonAgregar:hover {
-  background-color: #3f29bb !important;
-}
 
 .formWrapper {
   padding: 1rem;

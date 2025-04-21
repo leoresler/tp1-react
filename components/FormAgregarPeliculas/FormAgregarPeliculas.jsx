@@ -84,7 +84,7 @@ const FormAgregarPeliculas = ({onAgregar}) => {
         value={nuevaPelicula.rating}
         onChange={handleChange}
       />
-      <button className={styles.submitButton} type="submit">Agregar Película</button>
+      <button className={styles.submitButton} type="submit">Agregar</button>
     </form>
   );
 };

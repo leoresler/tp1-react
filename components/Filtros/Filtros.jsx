@@ -71,7 +71,7 @@ const Flitros = ({ porVer, vistas, peliculas, agregarPorVer, agregarVista, edita
 
         <input type="text" value={año} onChange={(e) => setAño(e.target.value)} placeholder="Ingrese un año..." />
 
-        <input type="text" value={rating} onChange={(e) => setRating(e.target.value)} placeholder="Ingrese un ratin..." />
+        <input type="text" value={rating} onChange={(e) => setRating(e.target.value)} placeholder="Ingrese un rating..." />
 
         <select value={ordenAño} onChange={(e) => setOrdenAño(e.target.value)}>
           <option value="">Ordenar por Año</option>

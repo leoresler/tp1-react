@@ -37,7 +37,7 @@ const Buscador = ({ porVer, vistas, peliculas, agregarPorVer, agregarVista, edit
 
         {busqueda && (
           <ListaPeliculas
-            titulo="Resultados de búsqueda"
+            titulo="Resultados de búsqueda:"
             porVer={porVer}
             vistas={vistas}
             peliculas={peliculasFiltradas}

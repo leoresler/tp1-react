@@ -4,10 +4,23 @@ import styles from "./ListaPeliculas.module.css";
 
 ("./traerPeliculas.js");
 
-const ListaPeliculas = ({ titulo, porVer, vistas, peliculas, agregarPorVer, agregarVista, editarItem, eliminarItem }) => {
+const ListaPeliculas = ({
+  titulo,
+  porVer,
+  vistas,
+  peliculas,
+  agregarPorVer,
+  agregarVista,
+  editarItem,
+  eliminarItem,
+}) => {
   return (
     <>
-      <SubTitulos textoSubTitulo={titulo} /> ({peliculas.length})
+      <SubTitulos textoSubTitulo={titulo} />
+      <div className={styles.contador}>
+        <p>Cantidad de películas y series: {peliculas.length}</p>
+      </div>
+
       {peliculas.length > 0 ? (
         <ItemList
           porVer={porVer}
@@ -24,6 +37,5 @@ const ListaPeliculas = ({ titulo, porVer, vistas, peliculas, agregarPorVer, agre
     </>
   );
 };
-
 
 export default ListaPeliculas;

@@ -133,7 +133,7 @@ const Item = ({ porVer, vistas, pelicula, agregarPorVer, agregarVista, editarIte
         </div>)
       }
       {mostrarConfirmacion && (
-        <div className="modal-confirmacion">
+        <div className={styles.confirmacionModal}>
           <p>¿Estas seguro de eliminar este item?</p>
           <button onClick={aceptarEliminacion}>Aceptar</button>
           <button onClick={cancelarEliminacion}>Cancelar</button>

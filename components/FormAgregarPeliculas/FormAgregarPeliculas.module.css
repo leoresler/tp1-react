@@ -4,6 +4,7 @@
   gap: 0.5rem;
   width: 100%;
   justify-content: center;
+  align-items: center;
 }
 
 .formulario input::placeholder {
@@ -19,13 +20,24 @@
 
 .formulario input,
 .formulario select {
-  flex: 1;
-  min-width: 120px;
+  flex: 1 1 220px;
   padding: 0.75rem;
   border-radius: 6px;
   border: none;
   background-color: #2a2a3b;
   color: white;
+  font-size: 14px;
+}
+
+.formulario input::placeholder {
+  color: #aaa;
+}
+
+.formulario label {
+  color: #ccc;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
 .formulario input:focus,
@@ -40,15 +52,10 @@
   color: white;
   border: none;
   border-radius: 6px;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 14px;
   cursor: pointer;
-  min-width: 120px;
   transition: background-color 0.3s ease;
-}
-
-
-.submitButton:hover {
-  background-color: #3f29bb;
 }
 
 

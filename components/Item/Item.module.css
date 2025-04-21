@@ -1,74 +1,74 @@
 /* Contenedor principal de cada tarjeta */
 .item {
-  background: #969191;
+  background: #2a2a3b;
   color: white;
   padding: 20px;
-  border-radius: 8px;
-  max-width: 300px;
-  margin: 20px;
+  border-radius: 10px;
+  width: 260px;
   position: relative;
-  min-height: 250px;
-  height: auto;
-  }
-  
-  
-  /* Estilo para el título */
-  .item h3 {
-    color: #2c3e50;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    border-bottom: 2px solid #27ae60;
-    padding-bottom: 5px;
-  }
-  
-  /* Estilo para los párrafos (información de la película) */
-  .item p {
-    color: #34495e;
-    margin: 5px 0;
-    font-size: 0.9rem;
-  }
-  
-  /* Estilo específico para el rating */
-  .item p:last-of-type {
-    font-weight: bold;
-    color: #e74c3c;
-  }
+}
 
-  /* Estilos para los botones */
+
+.item h3 {
+  color: #21d07a;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #21d07a;
+  padding-bottom: 5px;
+}
+
+.item p {
+  color: #ccc;
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.item p:last-of-type {
+  font-weight: bold;
+  color: #e67e22;
+}
+
+
 button {
-  padding: 8px 16px;
-  margin: 0 5px;
+  padding: 8px;
+  margin: 4px;
   border: none;
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Botón "Agregar a Por Ver" */
 button:nth-child(2) {
-  background-color: #5d646b;
+  background-color: #646566b7;
   color: white;
 }
 
-/* Botón "Agregar a Vistas" */
 button:nth-child(1) {
-  background-color: #27ae60;
+  background-color: #2d73dbc2;
   color: white;
 }
 
-/* Efecto hover para ambos botones */
-button:hover {
-  opacity: 0.9;
+button:nth-child(3) {
+  background-color: #f8080098;
+  color: white;
 }
 
-/* Contenedor de botones - para posicionarlos en la parte inferior */
+button:hover {
+  opacity: 0.95;
+  transform: scale(1.05);
+}
+
 .buttonContainer {
   position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.confirmacionModal p {
+  color: red !important;
 }
