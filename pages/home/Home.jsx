@@ -65,6 +65,7 @@ function Home() {
         porVer={porVer} 
         vistas={vistas} 
         peliculas={[...porVer, ...vistas]}
+        agregarPorVer={moverAPorVer}
         agregarVista={moverAVistas}
         editarItem={editarItem}
         eliminarItem={eliminarItem}
@@ -76,10 +77,11 @@ function Home() {
         porVer={porVer} 
         vistas={vistas} 
         peliculas={[...porVer, ...vistas]}
+        agregarPorVer={moverAPorVer}
         agregarVista={moverAVistas}
         editarItem={editarItem}
         eliminarItem={eliminarItem}
-        agregarPorVer={moverAPorVer} />
+      />
     </>
   );
 }

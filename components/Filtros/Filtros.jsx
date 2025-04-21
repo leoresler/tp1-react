@@ -2,14 +2,7 @@ import ListaPeliculas from "../ListaPeliculas/ListaPeliculas";
 import styles from "./Filtros.module.css";
 import { useState } from "react"
 
-// funcion que retorna un nuevo arreglo d elista de peliculas y series. (aparecen los items de la lista Por Ver)
-function mostrarVideosSeriesNoRepetidas(peliculas, listVistas) {
-  return peliculas.filter(
-    (pelicula) => !listVistas.some((vista) => vista.id === pelicula.id)
-  );
-}
-
-const Flitros = ({ porVer, vistas, agregarPorVer, agregarVista, editarItem, peliculas, eliminarItem }) => {
+const Flitros = ({ porVer, vistas, peliculas, agregarPorVer, agregarVista, editarItem, eliminarItem }) => {
 
   const [genero, setGenero] = useState("");
   const [tipo, setTipo] = useState("");
@@ -86,13 +79,27 @@ const Flitros = ({ porVer, vistas, agregarPorVer, agregarVista, editarItem, peli
           <>
             <ListaPeliculas
               titulo="Resultados de búsqueda:"
-              peliculas={mostrarVideosSeriesNoRepetidas(peliculasFiltradas, vistas)} // solo las peliculas de la lista Por Ver
+              porVer={porVer}
+              vistas={vistas}
+              peliculas={peliculasFiltradas}
+              agregarPorVer={agregarPorVer}
+              agregarVista={agregarVista}
+              editarItem={editarItem}
+              eliminarItem={eliminarItem}
+            />
+            <ListaPeliculas
+              titulo="Por ver"
+              porVer={porVer}
+              vistas={vistas}
+              peliculas={porVer}
               agregarVista={agregarVista}
               editarItem={editarItem}
               eliminarItem={eliminarItem}
             />
             <ListaPeliculas
               titulo="Vistas"
+              porVer={porVer}
+              vistas={vistas}
               peliculas={vistas}
               agregarPorVer={agregarPorVer}
             />
@@ -101,6 +108,8 @@ const Flitros = ({ porVer, vistas, agregarPorVer, agregarVista, editarItem, peli
           <>
             <ListaPeliculas
               titulo="Por ver"
+              porVer={porVer}
+              vistas={vistas}
               peliculas={porVer}
               agregarVista={agregarVista}
               editarItem={editarItem}
@@ -108,6 +117,8 @@ const Flitros = ({ porVer, vistas, agregarPorVer, agregarVista, editarItem, peli
             />
             <ListaPeliculas
               titulo="Vistas"
+              porVer={porVer}
+              vistas={vistas}
               peliculas={vistas}
               agregarPorVer={agregarPorVer}
             />

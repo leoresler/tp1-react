@@ -4,15 +4,17 @@ import styles from "./ListaPeliculas.module.css";
 
 ("./traerPeliculas.js");
 
-const ListaPeliculas = ({ titulo, peliculas, agregarVista, agregarPorVer, editarItem, eliminarItem }) => {
+const ListaPeliculas = ({ titulo, porVer, vistas, peliculas, agregarPorVer, agregarVista, editarItem, eliminarItem }) => {
   return (
     <>
       <SubTitulos textoSubTitulo={titulo} /> ({peliculas.length})
       {peliculas.length > 0 ? (
         <ItemList
+          porVer={porVer}
+          vistas={vistas}
           peliculas={peliculas}
-          agregarVista={agregarVista}
           agregarPorVer={agregarPorVer}
+          agregarVista={agregarVista}
           editarItem={editarItem}
           eliminarItem={eliminarItem}
         />

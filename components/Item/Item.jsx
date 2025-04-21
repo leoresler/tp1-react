@@ -3,7 +3,11 @@ import { BotonEditar, BotonEliminar, Button } from "../Button/Button";
 import styles from "./Item.module.css";
 import { useState } from 'react';
 
-const Item = ({ pelicula, agregarVista, agregarPorVer, editarItem, eliminarItem }) => {
+const Item = ({ porVer, vistas, pelicula, agregarPorVer, agregarVista, editarItem, eliminarItem }) => {
+
+  // verifica si esta en lista por ver o vistas
+  const estaEnPorVer = porVer?.some(item => item.id === pelicula.id);
+  const estaEnVistas = vistas?.some(item => item.id === pelicula.id);
 
   // editar 
   const [modoEdicion, setModoEdicion] = useState(false);
@@ -53,7 +57,8 @@ const Item = ({ pelicula, agregarVista, agregarPorVer, editarItem, eliminarItem 
     <div className={styles.item}>
 
       {modoEdicion ?
-        (<div>
+        (
+        <div>
           <input value={tituloEditado} onChange={(e) => setTituloEditado(e.target.value)} />
           <input value={directorEditado} onChange={(e) => setDirectorEditado(e.target.value)} />
           <input value={añoEditado} onChange={(e) => setAñoEditado(e.target.value)} />
@@ -91,7 +96,8 @@ const Item = ({ pelicula, agregarVista, agregarPorVer, editarItem, eliminarItem 
           <p>{pelicula.rating}</p>
 
           <div> {/* className={styles.buttonContainer} */}
-            {agregarVista && (
+
+            {!estaEnVistas && (
               <>
                 <Button
                   vista={agregarVista}
@@ -114,29 +120,16 @@ const Item = ({ pelicula, agregarVista, agregarPorVer, editarItem, eliminarItem 
               </>
             )}
 
-            {agregarPorVer && (
-              <>
-                <Button
-                  porVer={agregarPorVer}
-                  arreglo={pelicula}
-                  nombre="Agregar a Por Ver"
-                />
-                {editarItem && ( // verifica si tiene la propiedad editarItem (si lo tiene, lo muestra)
-                  <BotonEditar
-                    nombre="Editar"
-                    funcion={activarBoton}
-                  />
-                )}
-                {eliminarItem && ( // verifica si tiene la propiedad eliminarItem (si lo tiene, lo muestra)
-                  <BotonEliminar
-                    nombre="Eliminar"
-                    elemento={pelicula}
-                    funcion={confirmarEliminacion}
-                  />
-                )}
-              </>
+            {!estaEnPorVer && (
+              <Button
+                porVer={agregarPorVer}
+                arreglo={pelicula}
+                nombre="Agregar a Por Ver"
+              />
             )}
+
           </div>
+
         </div>)
       }
       {mostrarConfirmacion && (
