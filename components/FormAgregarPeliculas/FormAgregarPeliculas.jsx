@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./FormAgregarPeliculas.module.css";
+import styles from "./FormAgregarPeliculas.module.css";
 
 const FormAgregarPeliculas = ({onAgregar}) => {
   const [nuevaPelicula, setNuevaPelicula] = useState({
@@ -32,7 +32,7 @@ const FormAgregarPeliculas = ({onAgregar}) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.formulario} onSubmit={handleSubmit}>
       <input
         type="text"
         name="titulo"
@@ -84,7 +84,7 @@ const FormAgregarPeliculas = ({onAgregar}) => {
         value={nuevaPelicula.rating}
         onChange={handleChange}
       />
-      <button type="submit">Agregar Película</button>
+      <button className={styles.submitButton} type="submit">Agregar Película</button>
     </form>
   );
 };

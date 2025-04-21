@@ -1,7 +1,44 @@
 .divAgregarPelicula {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+.textoYBoton {
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.buttonAgregar {
+  background-color: #2d73db !important;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+  min-width: 120px;
+}
+
+.buttonAgregar:hover {
+  background-color: #3f29bb !important;
+}
+
+.formWrapper {
+  padding: 1rem;
+  background-color: #1e1e2f;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  flex: 1;
+  justify-content: center;
+}

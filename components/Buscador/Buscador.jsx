@@ -22,7 +22,7 @@ const Buscador = ({ porVer, vistas, peliculas, agregarPorVer, agregarVista, edit
     <>
       <div className={styles.divBuscador}>
         <label className={styles.labelBuscador} htmlFor="busqueda">
-          Buscador de Películas
+          Buscar películas o series
         </label>
         <input
           className={styles.inputBuscador}

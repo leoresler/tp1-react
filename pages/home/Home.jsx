@@ -1,4 +1,4 @@
-import "./Home.modules.css";
+import styles from "./Home.module.css";
 
 import { useEffect, useState } from "react";
 
@@ -10,7 +10,6 @@ import Titulo from "../../components/Titulo/Titulo";
 // import peliculasData from "../../src/assets/peliculas";
 
 function Home() {
-
   // Cargar datos desde localStorage al montar o un array vacio
   const porVerGuardadas = JSON.parse(localStorage.getItem("porVer")) || [];
   const vistasGuardadas = JSON.parse(localStorage.getItem("vistas")) || [];
@@ -25,7 +24,6 @@ function Home() {
     localStorage.setItem("vistas", JSON.stringify(vistas));
   }, [porVer, vistas]);
 
-
   // funcion que agrega una pelicula o serie
   const agregarPelicula = (pelicula) => {
     setPorVer([...porVer, pelicula]);
@@ -33,14 +31,33 @@ function Home() {
 
   // funcion que elimina una pelicula o serie
   const eliminarItem = (id) => {
-    const nuevoListaVideos = porVer.filter(video => video.id !== id); // general
+    const nuevoListaVideos = porVer.filter((video) => video.id !== id); // general
     setPorVer(nuevoListaVideos);
   };
 
   // funcion que edita una pelicula o serie
-  const editarItem = (id, nuevoTitulo, nuevoDirector, nuevoAño, nuevoGenero, nuevoRating, nuevoTipo) => {
+  const editarItem = (
+    id,
+    nuevoTitulo,
+    nuevoDirector,
+    nuevoAño,
+    nuevoGenero,
+    nuevoRating,
+    nuevoTipo
+  ) => {
     const nuevosVideos = porVer.map((video) =>
-      video.id === id ? { ...video, id: id, titulo: nuevoTitulo, director: nuevoDirector, año: nuevoAño, genero: nuevoGenero, tipo: nuevoTipo, rating: nuevoRating } : video
+      video.id === id
+        ? {
+            ...video,
+            id: id,
+            titulo: nuevoTitulo,
+            director: nuevoDirector,
+            año: nuevoAño,
+            genero: nuevoGenero,
+            tipo: nuevoTipo,
+            rating: nuevoRating,
+          }
+        : video
     );
     setPorVer(nuevosVideos);
   };
@@ -59,29 +76,39 @@ function Home() {
 
   return (
     <>
-      <Titulo textoTitulo="Videoclub" />
+      <div className={styles.containerHeader}>
+        <header className={styles.headerContainer}>
+          <div className={styles.supHeader}>
+            <Titulo textoTitulo="Videoclub" />
+          </div>
 
-      <Buscador
-        porVer={porVer} 
-        vistas={vistas} 
-        peliculas={[...porVer, ...vistas]}
-        agregarPorVer={moverAPorVer}
-        agregarVista={moverAVistas}
-        editarItem={editarItem}
-        eliminarItem={eliminarItem}
-      />
+          <div className={styles.infHeader}>
+            <MostrarFormulario onAgregar={agregarPelicula} />
+          </div>
 
-      <MostrarFormulario onAgregar={agregarPelicula} />
+          <Buscador
+            porVer={porVer}
+            vistas={vistas}
+            peliculas={[...porVer, ...vistas]}
+            agregarPorVer={moverAPorVer}
+            agregarVista={moverAVistas}
+            editarItem={editarItem}
+            eliminarItem={eliminarItem}
+          />
+        </header>
+      </div>
 
-      <Filtros 
-        porVer={porVer} 
-        vistas={vistas} 
-        peliculas={[...porVer, ...vistas]}
-        agregarPorVer={moverAPorVer}
-        agregarVista={moverAVistas}
-        editarItem={editarItem}
-        eliminarItem={eliminarItem}
-      />
+      <main className={styles.mainContainer}>
+        <Filtros
+          porVer={porVer}
+          vistas={vistas}
+          peliculas={[...porVer, ...vistas]}
+          agregarPorVer={moverAPorVer}
+          agregarVista={moverAVistas}
+          editarItem={editarItem}
+          eliminarItem={eliminarItem}
+        />
+      </main>
     </>
   );
 }

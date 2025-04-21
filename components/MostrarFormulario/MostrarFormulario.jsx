@@ -12,16 +12,20 @@ const MostrarFormulario = ({ onAgregar }) => {
 
   return (
     <div className={styles.divAgregarPelicula}>
-      <br />
-      <button onClick={handleOnClick}>{mostrar ? " ➖ Ocultar Agregar Pelicula" : "➕Agregar Pelicula"}</button>
-      {/* si mostras es verdadero, muestra el h2 */}
-      {mostrar && <FormAgregarPeliculas onAgregar={onAgregar} />}
-      {/*
-        Se podria hacer con un operador ternario
-        mostrar ?  <h2> Hola mundo<h2/> : <h2> <h2/> 
-      */}
+      <div className={styles.textoYBoton}>
+        <p>Agregá tus películas o series favoritas</p>
+        <button className={styles.buttonAgregar} onClick={handleOnClick}>
+          {mostrar ? "➖ Ocultar" : "➕ Agregar"}
+        </button>
+      </div>
+
+      {mostrar && (
+        <div className={styles.formWrapper}>
+          <FormAgregarPeliculas onAgregar={onAgregar} />
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
 
