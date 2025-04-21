@@ -1,26 +1,69 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📄 Carátula
 
-Currently, two official plugins are available:
+**Nombre del proyecto: VideoClub FAI**  
+**Materia: Programacion Web Avanzada**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 👥 Integrantes del grupo
 
-## Expanding the ESLint configuration
+- Francisco Pandolfi FAI-4610
+- Leandro Resler FAI-4275
+- Martín Paredes FAI-4997
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📌 Descripción de la aplicación
 
+Este proyecto consiste en una aplicación web desarrollada con React que permite gestionar una lista de películas y poder visualizar
+tanto sus caracteristicas como su estado (vista/noVista).
 
-GESTOR DE PELICULAS Y SERIES
+### Funcionalidades principales:
 
-Dos listas:
-            -peliculas vistas
-            -peliculas por ver
+- ✅ Agregar películas a una lista.
+- 👁️ Filtrarlas por genéro, tipo, año, etc.
+- 🔍 Buscar películas por titulo o director.
+- 🔄 Mover películas entre listas de vistas y no vistas
 
-Componentes:
+---
 
--Titulo
--Tarjetas para visualizar info de pelis, debe contener: título, director, año, género (usar un select para este campo), rating y tipo (película o serie).
--Botones
--
+## 🧪 Tecnologías utilizadas
+
+- React
+- JavaScript
+- HTML / CSS
+- Node.js
+- Vite
+
+---
+
+## 🛠️ Instrucciones de instalación y ejecución
+
+1.Clonar el repositorio
+2
+3
+4
+5..
+
+---
+
+## 🗂️ Archivos principales del proyecto
+
+### `index.js`
+
+Es el punto de entrada principal de la aplicación. Este archivo se encarga de renderizar el componente principal <App/> dentro del DOOM.
+
+### `App.js`
+
+Es el componente principal de la aplicación. Aquí se organizan y renderizan los distintos componentes del proyecto. También suele ser el lugar donde se maneja el estado global y se define la estructura general de la interfaz.
+
+### `index.css`
+
+Archivo donde se colocan los estilos globales de la aplicación.
+Se aplica a toda la app.
+
+### `package.json`
+
+Este archivo contiene información importante del proyecto como:
+
+- Nombre, versión y descripción del proyecto.
+- Todas las dependecias necesarias para que la aplicación funcione
+- Se genera automaticamente, al igual que los anteriores archivos.
