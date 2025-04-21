@@ -1,16 +1,28 @@
+import { useEffect, useState } from "react"
+
 import ListaPeliculas from "../ListaPeliculas/ListaPeliculas";
 import styles from "./Filtros.module.css";
-import { useState } from "react"
 
 const Flitros = ({ porVer, vistas, peliculas, agregarPorVer, agregarVista, editarItem, eliminarItem }) => {
 
-  const [genero, setGenero] = useState("");
-  const [tipo, setTipo] = useState("");
-  const [rating, setRating] = useState("");
-  const [año, setAño] = useState("");
-  const [ordenAño, setOrdenAño] = useState("");
-  const [ordenRating, setOrdenRating] = useState("");
+  //filtros de localStorage o usar valores por defecto
+  const [genero, setGenero] = useState(localStorage.getItem("filtroGenero") || "");
+  const [tipo, setTipo] = useState(localStorage.getItem("filtroTipo") || "");
+  const [rating, setRating] = useState(localStorage.getItem("filtroRating") || "");
+  const [año, setAño] = useState(localStorage.getItem("filtroAño") || "");
+  const [ordenAño, setOrdenAño] = useState(localStorage.getItem("filtroOrdenAño") || "");
+  const [ordenRating, setOrdenRating] = useState(localStorage.getItem("filtroOrdenRating") || "");
 
+  // Guardar en localStorage cuando cambien los filtros
+  useEffect(() => {
+    localStorage.setItem("filtroGenero", genero);
+    localStorage.setItem("filtroTipo", tipo);
+    localStorage.setItem("filtroRating", rating);
+    localStorage.setItem("filtroAño", año);
+    localStorage.setItem("filtroOrdenAño", ordenAño);
+    localStorage.setItem("filtroOrdenRating", ordenRating);
+  }, [genero, tipo, rating, año, ordenAño, ordenRating]);
+  
   const peliculasFiltradas = peliculas.filter((dato) => {
     const coincideGenero = genero ? dato.genero === genero : true;
     const coincideTipo = tipo ? dato.tipo === tipo : true;
@@ -33,7 +45,7 @@ const Flitros = ({ porVer, vistas, peliculas, agregarPorVer, agregarVista, edita
     peliculasFiltradas.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
   }
 
-  const filtrosActivos = genero !== "" || tipo !== "" || rating !== "" || año !== "" || ordenAño !== ""  || ordenRating !== "";
+  const filtrosActivos = genero !== "" || tipo !== "" || rating !== "" || año !== "" || ordenAño !== "" || ordenRating !== "";
 
   return (
     <div className={styles.divFiltros}>
@@ -56,7 +68,7 @@ const Flitros = ({ porVer, vistas, peliculas, agregarPorVer, agregarVista, edita
           <option value="Pelicula">Pelicula</option>
           <option value="Serie">Serie</option>
         </select>
-      
+
         <input type="text" value={año} onChange={(e) => setAño(e.target.value)} placeholder="Ingrese un año..." />
 
         <input type="text" value={rating} onChange={(e) => setRating(e.target.value)} placeholder="Ingrese un ratin..." />
