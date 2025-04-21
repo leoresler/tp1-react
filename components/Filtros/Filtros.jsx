@@ -13,14 +13,34 @@ const Flitros = ({ porVer, vistas, agregarPorVer, agregarVista, editarItem, peli
 
   const [genero, setGenero] = useState("");
   const [tipo, setTipo] = useState("");
+  const [rating, setRating] = useState("");
+  const [año, setAño] = useState("");
+  const [ordenAño, setOrdenAño] = useState("");
+  const [ordenRating, setOrdenRating] = useState("");
 
   const peliculasFiltradas = peliculas.filter((dato) => {
     const coincideGenero = genero ? dato.genero === genero : true;
     const coincideTipo = tipo ? dato.tipo === tipo : true;
-    return coincideGenero && coincideTipo;
+    const coincideRating = rating ? dato.rating === rating : true;
+    const coincideAño = año ? dato.año === año : true;
+    return coincideGenero && coincideTipo && coincideRating && coincideAño;
   });
 
-  const filtrosActivos = genero !== "" || tipo !== "";
+  // Ordenar por año si se seleccionó
+  if (ordenAño === "asc") {
+    peliculasFiltradas.sort((a, b) => parseInt(a.año) - parseInt(b.año));
+  } else if (ordenAño === "desc") {
+    peliculasFiltradas.sort((a, b) => parseInt(b.año) - parseInt(a.año));
+  }
+
+  // Luego ordenar por rating si se seleccionó
+  if (ordenRating === "asc") {
+    peliculasFiltradas.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating));
+  } else if (ordenRating === "desc") {
+    peliculasFiltradas.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
+  }
+
+  const filtrosActivos = genero !== "" || tipo !== "" || rating !== "" || año !== "" || ordenAño !== ""  || ordenRating !== "";
 
   return (
     <div className={styles.divFiltros}>
@@ -37,10 +57,27 @@ const Flitros = ({ porVer, vistas, agregarPorVer, agregarVista, editarItem, peli
           <option value="Documentales">Documentales</option>
           <option value="Romantica">Romantica</option>
         </select>
+
         <select value={tipo} onChange={(e) => setTipo(e.target.value)}>
           <option value="">Seleccionar tipo: </option>
           <option value="Pelicula">Pelicula</option>
           <option value="Serie">Serie</option>
+        </select>
+      
+        <input type="text" value={año} onChange={(e) => setAño(e.target.value)} placeholder="Ingrese un año..." />
+
+        <input type="text" value={rating} onChange={(e) => setRating(e.target.value)} placeholder="Ingrese un ratin..." />
+
+        <select value={ordenAño} onChange={(e) => setOrdenAño(e.target.value)}>
+          <option value="">Ordenar por Año</option>
+          <option value="asc">Año Ascendente</option>
+          <option value="desc">Año Descendente</option>
+        </select>
+
+        <select value={ordenRating} onChange={(e) => setOrdenRating(e.target.value)}>
+          <option value="">Ordenar por Rating</option>
+          <option value="asc">Rating Ascendente</option>
+          <option value="desc">Rating Descendente</option>
         </select>
       </div>
 

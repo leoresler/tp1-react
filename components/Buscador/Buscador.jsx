@@ -2,8 +2,14 @@ import ListaPeliculas from "../ListaPeliculas/ListaPeliculas.jsx";
 import styles from "./Buscador.module.css";
 import { useState } from "react";
 
-const Buscador = ({ peliculas, agregarVista,
-  editarItem, eliminarItem }) => {
+// funcion que retorna un nuevo arreglo de lista de peliculas y series. (aparecen los items de la lista Por Ver)
+function mostrarVideosSeriesNoRepetidas(peliculas, listVistas) {
+  return peliculas.filter(
+    (pelicula) => !listVistas.some((vista) => vista.id === pelicula.id)
+  );
+}
+
+const Buscador = ({ porVer, vistas, peliculas, agregarVista, editarItem, eliminarItem }) => {
   const [busqueda, setBusqueda] = useState("");
 
   const buscarPelicula = (e) => {
@@ -39,7 +45,8 @@ const Buscador = ({ peliculas, agregarVista,
         {busqueda && (
           <ListaPeliculas
             titulo="Resultados de búsqueda"
-            peliculas={peliculasFiltradas}
+            //peliculas={peliculasFiltradas}
+            peliculas={mostrarVideosSeriesNoRepetidas(peliculasFiltradas, vistas)}
             agregarVista={agregarVista}
             editarItem={editarItem}
             eliminarItem={eliminarItem}

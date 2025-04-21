@@ -7,8 +7,6 @@ import Filtros from "../../components/Filtros/Filtros";
 import MostrarFormulario from "../../components/MostrarFormulario/MostrarFormulario";
 import Titulo from "../../components/Titulo/Titulo";
 
-//import FormAgregarPeliculas from "../../components/FormAgregarPeliculas/FormAgregarPeliculas";
-//import ListaPeliculas from "../../components/ListaPeliculas/ListaPeliculas";
 // import peliculasData from "../../src/assets/peliculas";
 
 function Home() {
@@ -42,7 +40,7 @@ function Home() {
   // funcion que edita una pelicula o serie
   const editarItem = (id, nuevoTitulo, nuevoDirector, nuevoAño, nuevoGenero, nuevoRating, nuevoTipo) => {
     const nuevosVideos = porVer.map((video) =>
-      video.id === id ? { ...video, id: id, titulo: nuevoTitulo, director: nuevoDirector, año: parseInt(nuevoAño), genero: nuevoGenero, tipo: nuevoTipo, rating: nuevoRating } : video
+      video.id === id ? { ...video, id: id, titulo: nuevoTitulo, director: nuevoDirector, año: nuevoAño, genero: nuevoGenero, tipo: nuevoTipo, rating: nuevoRating } : video
     );
     setPorVer(nuevosVideos);
   };
@@ -64,6 +62,8 @@ function Home() {
       <Titulo textoTitulo="Videoclub" />
 
       <Buscador
+        porVer={porVer} 
+        vistas={vistas} 
         peliculas={[...porVer, ...vistas]}
         agregarVista={moverAVistas}
         editarItem={editarItem}
