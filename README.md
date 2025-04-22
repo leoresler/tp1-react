@@ -1,6 +1,8 @@
 # React + Vite
 
-## 📄 Carátula
+<p align="center">
+  <img src="./src/assets/logo/logoNeon.png" alt="Portada del proyecto" width="600"/>
+</p>
 
 **Nombre del proyecto: VideoClub FAI**  
 **Materia: Programacion Web Avanzada**
