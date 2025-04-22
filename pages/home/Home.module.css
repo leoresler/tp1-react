@@ -28,6 +28,11 @@ body {
   margin-bottom: 1rem;
   justify-content: space-between;
 }
+.supHeader{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 
 .mainContainer {

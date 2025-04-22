@@ -77,10 +77,14 @@ function Home() {
   return (
     <>
       <div className={styles.containerHeader}>
-        <header className={styles.headerContainer}>
-          <div className={styles.supHeader}>
-            <Titulo textoTitulo="Videoclub" />
+      <div className={styles.supHeader}>
+            <Titulo textoTitulo="Del Comahue" />
           </div>
+
+
+        <header className={styles.headerContainer}>
+         
+
 
           <div className={styles.infHeader}>
             <MostrarFormulario onAgregar={agregarPelicula} />

@@ -7,6 +7,7 @@ const Titulo = ({ textoTitulo }) => {
        <h1>
         {textoTitulo}
       </h1>
+      <h2>Video-Club</h2>
     </header>
   
   );
