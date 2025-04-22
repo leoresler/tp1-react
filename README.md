@@ -8,7 +8,7 @@
 
 **Nombre del proyecto: VideoClub Del Comahue**  <br>
 **Materia: Programacion Web Avanzada** <br>
-**Profesor:Agustin Chiarotto** <br>
+**Profesor: Agustin Chiarotto** <br>
 **TP nº 1 (React + Vite)**<br>
 **Link Vercel:** [https://tp1-react.Videoclub.vercel.app](https://tp1-react-theta.vercel.app/)
 
@@ -44,9 +44,9 @@ tanto sus caracteristicas como su estado (vista/noVista).
 
 ## 🛠️ Instrucciones de instalación y ejecución
 
-1.Crear el repositorio en github.
-2.Abrir la terminal e instalar react en el proyecto con el comando npm create vite@latest mi-app-react -- --template react.
-3.Los colaboradores clonan el repositorio en una carpeta (ya sea mediante un comando en la terminal o por URL).
+1.Crear el repositorio en github.<br>
+2.Abrir la terminal e instalar react en el proyecto con el comando npm create vite@latest mi-app-react -- --template react.<br>
+3.Los colaboradores clonan el repositorio en una carpeta (ya sea mediante un comando en la terminal o por URL).<br>
 4.En la terminal, utilizar el comando npm install para instalar las dependencias (guardadas en el archivo package.json) y dejar listo el proyecto para empezar.
 
 ---
