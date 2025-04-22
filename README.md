@@ -1,11 +1,15 @@
-# React + Vite
+# 🎬 VideoClub Del Comahue
 
 <p align="center">
   <img src="./src/assets/logo/logoNeon.png" alt="Portada del proyecto" width="600"/>
 </p>
 
-**Nombre del proyecto: VideoClub FAI**  
+## ℹ️ Información del proyecto
+
+**Nombre del proyecto: VideoClub Del Comahue**  
 **Materia: Programacion Web Avanzada**
+**Profesor:Agustin Chiarotto**
+**TP nº 1 (React + Vite)**
 
 ## 👥 Integrantes del grupo
 
