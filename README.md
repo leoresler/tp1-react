@@ -6,10 +6,10 @@
 
 ## ℹ️ Información del proyecto
 
-**Nombre del proyecto: VideoClub Del Comahue**  
-**Materia: Programacion Web Avanzada**
-**Profesor:Agustin Chiarotto**
-**TP nº 1 (React + Vite)**
+**Nombre del proyecto: VideoClub Del Comahue**  <br>
+**Materia: Programacion Web Avanzada** <br>
+**Profesor:Agustin Chiarotto** <br>
+**TP nº 1 (React + Vite)**<br>
 
 ## 👥 Integrantes del grupo
 
