@@ -10,10 +10,11 @@
 **Materia: Programacion Web Avanzada** <br>
 **Profesor:Agustin Chiarotto** <br>
 **TP nº 1 (React + Vite)**<br>
+[Link de aplicación en Vercel: ]([https://tuproyecto.vercel.app](https://tp1-react-theta.vercel.app/))
 
 ## 👥 Integrantes del grupo
 
-- Francisco Pandolfi FAI-4610
+- Francisco Pandolfi FAI-4650
 - Leandro Resler FAI-4275
 - Martín Paredes FAI-4997
 
