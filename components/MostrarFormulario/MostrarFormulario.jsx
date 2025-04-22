@@ -11,8 +11,9 @@ const MostrarFormulario = ({ onAgregar }) => {
   }
 
   return (
-    <div className={styles.divAgregarPelicula}>
-      <div className={styles.textoYBoton}>
+
+    <div >      
+      <div className={styles.fila}>
         <p>Agregá tus películas o series favoritas</p>
         <button className={styles.buttonAgregar} onClick={handleOnClick}>
           {mostrar ? "➖ Ocultar" : "➕ Agregar"}

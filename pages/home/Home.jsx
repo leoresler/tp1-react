@@ -1,11 +1,15 @@
-import styles from "./Home.module.css";
-
 import { useEffect, useState } from "react";
 
 import Buscador from "../../components/Buscador/Buscador";
 import Filtros from "../../components/Filtros/Filtros";
 import MostrarFormulario from "../../components/MostrarFormulario/MostrarFormulario";
 import Titulo from "../../components/Titulo/Titulo";
+import logoCamara from "../../src/assets/logo/logoCamara.png"
+import styles from "./Home.module.css";
+
+//import logoNeon from "../../src/assets/logo/logoNeon.png"
+
+
 
 // import peliculasData from "../../src/assets/peliculas";
 
@@ -48,15 +52,15 @@ function Home() {
     const nuevosVideos = porVer.map((video) =>
       video.id === id
         ? {
-            ...video,
-            id: id,
-            titulo: nuevoTitulo,
-            director: nuevoDirector,
-            año: nuevoAño,
-            genero: nuevoGenero,
-            tipo: nuevoTipo,
-            rating: nuevoRating,
-          }
+          ...video,
+          id: id,
+          titulo: nuevoTitulo,
+          director: nuevoDirector,
+          año: nuevoAño,
+          genero: nuevoGenero,
+          tipo: nuevoTipo,
+          rating: nuevoRating,
+        }
         : video
     );
     setPorVer(nuevosVideos);
@@ -77,18 +81,18 @@ function Home() {
   return (
     <>
       <div className={styles.containerHeader}>
-      <div className={styles.supHeader}>
-            <Titulo textoTitulo="Del Comahue" />
-          </div>
-
+        
+        <div className={styles.supHeader}>
+          <img src={logoCamara} alt="Logo de Video Club del Comahue" className={styles.logo}/>
+          <Titulo textoTitulo="Video Club Del Comahue" />
+        </div>
+        
+        <br />
 
         <header className={styles.headerContainer}>
-         
 
-
-          <div className={styles.infHeader}>
-            <MostrarFormulario onAgregar={agregarPelicula} />
-          </div>
+        <MostrarFormulario onAgregar={agregarPelicula} />
+          {/* <div className={styles.infHeader}></div> */}
 
           <Buscador
             porVer={porVer}
@@ -99,7 +103,9 @@ function Home() {
             editarItem={editarItem}
             eliminarItem={eliminarItem}
           />
+          
         </header>
+        
       </div>
 
       <main className={styles.mainContainer}>
