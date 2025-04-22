@@ -10,7 +10,7 @@
 **Materia: Programacion Web Avanzada** <br>
 **Profesor:Agustin Chiarotto** <br>
 **TP nº 1 (React + Vite)**<br>
-[Link de aplicación en Vercel: ]([https://tuproyecto.vercel.app](https://tp1-react-theta.vercel.app/))
+Link de aplicación en Vercel: ([https://tuproyecto.vercel.app](https://tp1-react-theta.vercel.app/))
 
 ## 👥 Integrantes del grupo
 
