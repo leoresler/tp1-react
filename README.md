@@ -26,7 +26,7 @@ tanto sus caracteristicas como su estado (vista/noVista).
 ### Funcionalidades principales:
 
 - ✅ Agregar películas a una lista.
-- 👁️ Filtrarlas por genéro, tipo, año, etc.
+- 👁️ Filtrarlas por genéro, tipo, año, rating, ordenamiento ascendente y descendente.
 - 🔍 Buscar películas por titulo o director.
 - 🔄 Mover películas entre listas de vistas y no vistas
 
