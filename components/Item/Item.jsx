@@ -106,6 +106,7 @@ const Item = ({ porVer, vistas, pelicula, agregarPorVer, agregarVista, editarIte
           <p>{pelicula.tipo}</p>
           <p>{pelicula.rating}</p>
 
+{/* borrar codigo comentado */}
           <div> {/* className={styles.buttonContainer} */}
 
             {!estaEnVistas && (

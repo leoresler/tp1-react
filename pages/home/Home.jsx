@@ -7,6 +7,7 @@ import Titulo from "../../components/Titulo/Titulo";
 import logoCamara from "../../src/assets/logo/logoCamara.png"
 import styles from "./Home.module.css";
 
+//borren codigo comentado
 //import logoNeon from "../../src/assets/logo/logoNeon.png"
 
 
@@ -87,6 +88,7 @@ function Home() {
           <Titulo textoTitulo="Video Club Del Comahue" />
         </div>
         
+        {/* Evitar usar br como separador, mejor agregar paddin/margin a los demas componentes */}
         <br />
 
         <header className={styles.headerContainer}>

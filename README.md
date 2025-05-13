@@ -1,3 +1,17 @@
+Correcciones:
+- Linda UI, se siente muy limpia y con una buena UX.
+- Codigo bien estilado, de gran calidad.
+- Buen uso de local storage.
+- Buen uso de useState y useEffect.
+
+Observaciones: 
+- Borren archivos que se generan por default que no usan (vite.svg)
+- Borren codigo comentado antes de entregar.
+- Eviten usar br como separadores o espaciados entre elementos. Lo mejor es usar marging/padding
+- Usen unicamente una carpeta por componente. Dentro de titulo tienen tambien subtitlo.
+
+Nota: 10
+
 # 🎬 VideoClub Del Comahue
 
 <p align="center">
