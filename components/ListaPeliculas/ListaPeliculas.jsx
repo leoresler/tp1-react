@@ -2,6 +2,7 @@ import ItemList from "../ItemList/ItemList";
 import SubTitulos from "../Titulo/SubTitulos";
 import styles from "./ListaPeliculas.module.css";
 
+//  ?
 ("./traerPeliculas.js");
 
 const ListaPeliculas = ({
